@@ -111,13 +111,14 @@ public class Main {
 							"Nombre Hospital", JOptionPane.INFORMATION_MESSAGE);
 					String contraDoctor = JOptionPane.showInputDialog(null, "Contraseña del doctor",
 							"Contraseña Hospital", JOptionPane.INFORMATION_MESSAGE);
-
-					Query<Hospital> consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
-					List<Hospital> lista = consulta.getResultList();
+					//RELACION HASTA
+//					Query<Hospital> consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
+//					List<Hospital> lista = consulta.getResultList();
 					Doctor d = new Doctor(nomnbreDoctor, contraDoctor);
-					Hospital hospitales = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
-							JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
-					d.setHospiral(hospitales);
+//					Hospital hospitales = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
+//							JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
+//					d.setHospiral(hospitales);
+					//RELACION AQUI
 					miSesion.beginTransaction();
 					miSesion.save(d);
 					miSesion.getTransaction().commit();
@@ -203,7 +204,7 @@ public class Main {
 				case 3:
 					idEspecialidad = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Qué id tiene  la especialidade?",
 							"Id Especialidad", JOptionPane.INFORMATION_MESSAGE));
-					Query<Especialidades> consulta3 = miSesion.createQuery("FROM Doctor where idespecialidades=:idEspecialidad",
+					Query<Especialidades> consulta3 = miSesion.createQuery("FROM Especialidades where idespecialidades=:idEspecialidad",
 							Especialidades.class);
 					consulta3.setParameter("idEspecialidad", idEspecialidad);
 					Especialidades e4 = consulta3.getSingleResult();
