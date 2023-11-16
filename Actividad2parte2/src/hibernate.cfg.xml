@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<!--Hibernate utiliza JDBC. Solo traduce -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">1234</property>
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		<!--Muestra las sentencias sql al ejecutarse hibernate -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- mapping resource="accesodatos/pruebaHibernate/customer.hbm.xml"/-->
+		<!-- mapping class="accesodatos.pruebahibernate.Customer"/-->
+		<property name="format_sql">true</property>
+		<!--Cómo se comporta hibernate al iniciarse 
+        Create. Vuelve a crear las tablas
+        Create-drop. Crea las tablas y elimina al terminar 
+        update. Actualiza las tablas 
+        Validate. Comprueba si son correctas
+        -->
+		<property name="hbm2ddl.auto">update</property>
+		<!--Utiilizamos anotaciones de la clase Customer -->
+		<mapping class="Modelo.Doctor" />
+		<mapping class="Modelo.Hospital" />
+		<mapping class="Modelo.Especialidades" />
+		
+
+	</session-factory>
+</hibernate-configuration>
