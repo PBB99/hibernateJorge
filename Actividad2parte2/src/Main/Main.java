@@ -114,6 +114,9 @@ public class Main {
 					//RELACION HASTA
 //					Query<Hospital> consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
 //					List<Hospital> lista = consulta.getResultList();
+					//SACAR UNA LISTA DE DOCTORES
+//					Query<Doctor> consulta2 = miSesion.createQuery("FROM Doctor ",Doctor.class);
+//					List<Doctor>listaDoctores=consulta2.getResultList();
 					Doctor d = new Doctor(nomnbreDoctor, contraDoctor);
 //					Hospital hospitales = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
 //							JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
