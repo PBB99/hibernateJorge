@@ -98,7 +98,7 @@ public class Doctor implements Serializable {
     private List<Especialidades> especialidades = new ArrayList<Especialidades>();
     
     public List<Especialidades> getEspecialidades() {
-    return especialidades;
+    	return especialidades;
     }
     public void addEspecialidad(Especialidades p)
     {
@@ -107,6 +107,20 @@ public class Doctor implements Serializable {
     }
     public void setEspecialidad(List<Especialidades> especialidades) {
         this.especialidades = especialidades;
+    }
+    
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+	 
+	 private List<Alumno> alumnos;
+    
+    public List<Alumno> getAlumno(){
+        return alumnos;
+    }
+    
+    public void addAlumno(Alumno d){
+        if (alumnos == null) alumnos=new ArrayList<>();
+        alumnos.add(d);
+        d.setDoctor(this);
     }
     
 }

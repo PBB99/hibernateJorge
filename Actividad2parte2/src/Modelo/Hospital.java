@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "Hospital")
 public class Hospital implements Serializable {
@@ -62,5 +63,18 @@ public class Hospital implements Serializable {
          if (doctores == null) doctores=new ArrayList<>();
          doctores.add(d);
          d.setHospiral(this);
+     }
+     
+     
+     @OneToOne(mappedBy = "hospital",cascade=CascadeType.ALL)
+     
+     private Ciudad ciudad;
+
+     public Ciudad getCiudad() {
+         return ciudad;
+     }
+
+     public void setCiudad(Ciudad ciudad) {
+         this.ciudad = ciudad;
      }
 }

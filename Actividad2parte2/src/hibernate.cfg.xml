@@ -27,6 +27,8 @@
 		<mapping class="Modelo.Doctor" />
 		<mapping class="Modelo.Hospital" />
 		<mapping class="Modelo.Especialidades" />
+		<mapping class="Modelo.Alumno" />
+		<mapping class="Modelo.Ciudad" />
 		
 
 	</session-factory>
