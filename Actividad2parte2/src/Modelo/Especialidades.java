@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table (name="Epecialidades")
+@Table (name="Especialidades")
 public class Especialidades implements Serializable{
 
 	@Id
@@ -45,6 +45,9 @@ public class Especialidades implements Serializable{
 	
 	public Especialidades(int id, String especialidades) {
 		this.idespecialidades=id;
+		this.especialidad=especialidades;
+	}
+	public Especialidades( String especialidades) {
 		this.especialidad=especialidades;
 	}
 	

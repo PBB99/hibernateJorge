@@ -67,6 +67,16 @@ public class Doctor implements Serializable {
 		this.nombre = nommbre;
 		this.contraseña = contra;
 	}
+	public Doctor( String nommbre, String contra) {
+		
+		this.nombre = nommbre;
+		this.contraseña = contra;
+	}
+	public Doctor(int id,  String contra) {
+		this.iddoctor = id;
+		
+		this.contraseña = contra;
+	}
 	
 	@ManyToOne(cascade={CascadeType.ALL})
     @JoinColumn(name = "idhospital")
@@ -95,7 +105,7 @@ public class Doctor implements Serializable {
         this.especialidades.add(p);
         p.getDoctores().add(this);
     }
-    public void setClientes(List<Especialidades> especialidades) {
+    public void setEspecialidad(List<Especialidades> especialidades) {
         this.especialidades = especialidades;
     }
     
