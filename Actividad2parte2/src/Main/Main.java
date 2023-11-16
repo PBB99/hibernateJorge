@@ -99,13 +99,10 @@ public class Main {
 				break;
 			// a través de relaciones
 			case 1:
-				// elige entre insert updtae delete o select
 				int option = JOptionPane.showOptionDialog(null, "¿Que relacion quieres Modificar?", "Elige",
 						JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, rel1, rel1[0]);
 				switch (option) {
-				// hacer un insert
 				case 0:
-					// guarda el hospital
 					int relaciones = JOptionPane.showOptionDialog(null, "¿Qué quieres hacer?", "Elige",
 							JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, rel, rel[0]);
 					switch (relaciones) {
@@ -115,8 +112,7 @@ public class Main {
 						List<Hospital> lista = consulta.getResultList();
 						Hospital hospital = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
 								JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
-						//d.setHospiral(hospitales);
-						// SACAR UNA LISTA DE DOCTORES
+
 						Query<Ciudad> consulta2 = miSesion.createQuery("FROM Ciudad",Ciudad.class);
 						List<Ciudad>listaCiudades=consulta2.getResultList();
 						Ciudad ciudad = (Ciudad) JOptionPane.showInputDialog(null, "Ciudades sin hospital", "Elegir",
@@ -126,14 +122,11 @@ public class Main {
 						miSesion.save(ciudad);
 						miSesion.getTransaction().commit();
 						break;
-					// hacer un update por id del hospital
 					case 1:
 						consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
 						lista = consulta.getResultList();
 						hospital = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
 								JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
-						//d.setHospiral(hospitales);
-						// SACAR UNA LISTA DE DOCTORES
 						consulta2 = miSesion.createQuery("FROM Ciudad",Ciudad.class);
 						listaCiudades=consulta2.getResultList();
 						ciudad = (Ciudad) JOptionPane.showInputDialog(null, "Ciudades sin hospital", "Elegir",
@@ -143,14 +136,11 @@ public class Main {
 						miSesion.save(ciudad);
 						miSesion.getTransaction().commit();
 						break;
-					// hacer un delete de un hospital por id
 					case 2:
 						consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
 						lista = consulta.getResultList();
 						hospital = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
 								JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
-						//d.setHospiral(hospitales);
-						// SACAR UNA LISTA DE DOCTORES
 						consulta2 = miSesion.createQuery("FROM Ciudad",Ciudad.class);
 						listaCiudades=consulta2.getResultList();
 						ciudad = (Ciudad) JOptionPane.showInputDialog(null, "Ciudades sin hospital", "Elegir",
@@ -160,7 +150,6 @@ public class Main {
 						miSesion.save(ciudad);
 						miSesion.getTransaction().commit();
 						break;
-					// hacer una consulta select con where(sacar el nombre por id)
 					case 3:
 						consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
 						lista = consulta.getResultList();
@@ -187,8 +176,6 @@ public class Main {
 							List<Hospital> lista = consulta.getResultList();
 							Hospital hospital = (Hospital) JOptionPane.showInputDialog(null, "Hospitales", "Elegir",
 									JOptionPane.QUESTION_MESSAGE, null, lista.toArray(), lista.toArray()[0]);
-							//d.setHospiral(hospitales);
-							// SACAR UNA LISTA DE DOCTORES
 							Query<Doctor> consulta2 = miSesion.createQuery("FROM Doctor",Doctor.class);
 							List<Doctor>listaDoctores=consulta2.getResultList();
 							Doctor doc = (Doctor) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
@@ -198,7 +185,6 @@ public class Main {
 							miSesion.save(doc);
 							miSesion.getTransaction().commit();
 							break;
-						// hacer un update por id del hospital
 						case 1:
 							consulta2 = miSesion.createQuery("FROM Doctor",Doctor.class);
 							listaDoctores=consulta2.getResultList();
@@ -215,7 +201,6 @@ public class Main {
 							miSesion.save(doc);
 							miSesion.getTransaction().commit();
 							break;
-						// hacer un delete de un hospital por id
 						case 2:
 							consulta2 = miSesion.createQuery("FROM Doctor",Doctor.class);
 							listaDoctores=consulta2.getResultList();
@@ -232,7 +217,6 @@ public class Main {
 							miSesion.save(doc);
 							miSesion.getTransaction().commit();
 							break;
-						// hacer una consulta select con where(sacar el nombre por id)
 						case 3:
 							consulta = miSesion.createQuery("FROM Hospital", Hospital.class);
 							lista = consulta.getResultList();
@@ -329,8 +313,6 @@ public class Main {
 					List<Doctor>listaDoctores=consulta.getResultList();
 					Doctor doc = (Doctor) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
 							JOptionPane.QUESTION_MESSAGE, null, listaDoctores.toArray(), listaDoctores.toArray()[0]);
-					//d.setHospiral(hospitales);
-					// SACAR UNA LISTA DE DOCTORES
 					Query<Alumno> consulta2 = miSesion.createQuery("FROM Alumno",Alumno.class);
 					List<Alumno>listaAlumnos=consulta2.getResultList();
 					Alumno alum = (Alumno) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
@@ -340,7 +322,6 @@ public class Main {
 					miSesion.save(alum);
 					miSesion.getTransaction().commit();
 					break;
-				// hacer un update por id del hospital
 				case 1:
 					consulta2 = miSesion.createQuery("FROM Alumno",Alumno.class);
 					listaAlumnos=consulta2.getResultList();
@@ -356,7 +337,6 @@ public class Main {
 					miSesion.save(alum);
 					miSesion.getTransaction().commit();
 					break;
-				// hacer un delete de un hospital por id
 				case 2:
 					consulta2 = miSesion.createQuery("FROM Alumno",Alumno.class);
 					listaAlumnos=consulta2.getResultList();
@@ -372,7 +352,6 @@ public class Main {
 					miSesion.save(alum);
 					miSesion.getTransaction().commit();
 					break;
-				// hacer una consulta select con where(sacar el nombre por id)
 				case 3:
 					consulta = miSesion.createQuery("FROM Doctor",Doctor.class);
 					listaDoctores=consulta.getResultList();
@@ -457,8 +436,6 @@ public class Main {
 					List<Doctor>listaDoctores=consulta.getResultList();
 					Doctor doc = (Doctor) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
 							JOptionPane.QUESTION_MESSAGE, null, listaDoctores.toArray(), listaDoctores.toArray()[0]);
-					//d.setHospiral(hospitales);
-					// SACAR UNA LISTA DE DOCTORES
 					Query<Especialidades> consulta2 = miSesion.createQuery("FROM Especialidades",Especialidades.class);
 					List<Especialidades>listaEspecialidades=consulta2.getResultList();
 					Especialidades esp = (Especialidades) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
@@ -482,8 +459,6 @@ public class Main {
 					listaDoctores=consulta.getResultList();
 					doc = (Doctor) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
 							JOptionPane.QUESTION_MESSAGE, null, listaDoctores.toArray(), listaDoctores.toArray()[0]);
-					//d.setHospiral(hospitales);
-					// SACAR UNA LISTA DE DOCTORES
 					consulta2 = miSesion.createQuery("FROM Especialidades",Especialidades.class);
 					listaEspecialidades=consulta2.getResultList();
 					esp = (Especialidades) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
@@ -500,15 +475,12 @@ public class Main {
 					miSesion.save(doc);
 					miSesion.getTransaction().commit();
 					break;
-				// hacer un delete de un hospital por id
 				case 2:
-//					crear = false;
 					consulta = miSesion.createQuery("FROM Doctor",Doctor.class);
 					listaDoctores=consulta.getResultList();
 					doc = (Doctor) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
 							JOptionPane.QUESTION_MESSAGE, null, listaDoctores.toArray(), listaDoctores.toArray()[0]);
-					//d.setHospiral(hospitales);
-					// SACAR UNA LISTA DE DOCTORES
+
 					consulta2 = miSesion.createQuery("FROM Especialidades",Especialidades.class);
 					listaEspecialidades=consulta2.getResultList();
 					esp = (Especialidades) JOptionPane.showInputDialog(null, "Doctores", "Elegir",
@@ -538,7 +510,6 @@ public class Main {
 					miSesion.save(doc);
 					miSesion.getTransaction().commit();
 					break;
-				// hacer una consulta select con where(sacar el nombre por id)
 				case 3:
 					consulta2 = miSesion.createQuery("FROM Especialidades",Especialidades.class);
 					listaEspecialidades=consulta2.getResultList();
