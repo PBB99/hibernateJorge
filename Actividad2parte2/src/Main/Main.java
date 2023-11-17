@@ -71,7 +71,10 @@ public class Main {
 					miSesion.beginTransaction();
 					idHospital = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Qué id tiene  el hospital?",
 							"Id Hospital", JOptionPane.INFORMATION_MESSAGE));
+					
 					Hospital h3 = new Hospital(idHospital, "nombre");
+					
+				
 					miSesion.delete(h3);
 					miSesion.getTransaction().commit();
 					break;
